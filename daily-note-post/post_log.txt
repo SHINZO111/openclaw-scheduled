@@ -1,0 +1,500 @@
+[2026-04-29 06:24:32] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:24:32]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:24:32]   価格     : 600円
+[2026-04-29 06:24:32]   タグ     : ['ライブチャット', 'チャットレディ', 'コミュニケーション', '存在感', '足跡']
+[2026-04-29 06:24:36]   note.com/notes/new へ移動...
+[2026-04-29 06:24:42]   現在URL: https://note.com/login?redirectPath=/notes/new
+[2026-04-29 06:24:42] AUTH_ERROR: ログインセッション切れ。save_note_auth.py で再ログインしてください。
+[2026-04-29 06:35:23] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:35:23]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:35:23]   価格     : 600円
+[2026-04-29 06:35:23]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 06:35:25]   note.com/notes/new へ移動...
+[2026-04-29 06:35:32]   現在URL: https://note.com/login?redirectPath=/notes/new
+[2026-04-29 06:35:32] AUTH_ERROR: ログインセッション切れ。save_note_auth.py で再ログインしてください。
+[2026-04-29 06:47:55] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:47:55]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:47:55]   価格     : 600円
+[2026-04-29 06:47:55]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 06:47:58]   note.com/notes/new へ移動...
+[2026-04-29 06:48:04]   現在URL: https://editor.note.com/new
+[2026-04-29 06:48:04]   タイトル入力...
+[2026-04-29 06:48:04]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 06:48:04]   本文をクリップボードに設定...
+[2026-04-29 06:48:05]   方法A: Windowsクリップボード設定成功
+[2026-04-29 06:48:08]   本文ペーストセレクタ: .ProseMirror
+[2026-04-29 06:48:08]   「公開する」ボタンをクリック...
+[2026-04-29 06:48:10]   価格設定: 600円...
+[2026-04-29 06:48:10]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 06:48:10]   (タグ '恋活' 追加失敗 - スキップ)
+[2026-04-29 06:48:10]   最終投稿ボタンをクリック...
+[2026-04-29 06:48:10] FAILED: 最終投稿ボタンが見つかりません
+[2026-04-29 06:48:10] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 365, in main
+    raise Exception("最終投稿ボタンが見つかりません")
+Exception: 最終投稿ボタンが見つかりません
+
+[2026-04-29 06:48:10]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png
+[2026-04-29 06:49:50] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:49:50]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:49:50]   価格     : 600円
+[2026-04-29 06:49:50]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 06:49:53]   note.com/notes/new へ移動...
+[2026-04-29 06:49:56]   現在URL: https://editor.note.com/new
+[2026-04-29 06:49:56]   タイトル入力...
+[2026-04-29 06:49:56]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 06:49:57]   本文をクリップボードに設定...
+[2026-04-29 06:49:57]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 06:49:59]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-04-29 06:49:59]   「公開する」ボタンをクリック...
+[2026-04-29 06:50:02]   価格設定: 600円...
+[2026-04-29 06:50:02]   有料選択: label:has-text("有料")
+[2026-04-29 06:50:02]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 06:50:03]   タグ追加: 恋活
+[2026-04-29 06:50:04]   タグ追加: チャット
+[2026-04-29 06:50:05]   タグ追加: 50代
+[2026-04-29 06:50:05]   最終投稿ボタンをクリック...
+[2026-04-29 06:50:05] FAILED: 最終投稿ボタンが見つかりません
+[2026-04-29 06:50:05] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 387, in main
+    raise Exception("最終投稿ボタンが見つかりません")
+Exception: 最終投稿ボタンが見つかりません
+
+[2026-04-29 06:50:05]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png
+[2026-04-29 06:50:42] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:50:42]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:50:42]   価格     : 600円
+[2026-04-29 06:50:42]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 06:50:44]   note.com/notes/new へ移動...
+[2026-04-29 06:50:47]   現在URL: https://editor.note.com/new
+[2026-04-29 06:50:47]   タイトル入力...
+[2026-04-29 06:50:47]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 06:50:48]   本文をクリップボードに設定...
+[2026-04-29 06:50:48]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 06:50:51]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-04-29 06:50:51]   「公開する」ボタンをクリック...
+[2026-04-29 06:50:53]   価格設定: 600円...
+[2026-04-29 06:50:53]   有料選択: label:has-text("有料")
+[2026-04-29 06:50:53]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 06:50:54]   タグ追加: 恋活
+[2026-04-29 06:50:55]   タグ追加: チャット
+[2026-04-29 06:50:56]   タグ追加: 50代
+[2026-04-29 06:50:56]   最終投稿ボタンをクリック...
+[2026-04-29 06:50:57]   全ボタンをスキャン...
+[2026-04-29 06:50:57]   ページ上のボタン: ['キャンセル', '有料エリア設定', 'ハッシュタグ', '記事タイプ', '記事の追加', 'クーポン', '詳細設定', '#恋活', '#チャット', '#50代', '#相手', '#足跡', '#行動', '#足跡戦略', '#行為', '46,803件\n7月8日まで', '8,610件\n5月15日まで', '5,277件\n5月1日まで', '#\n創作大賞感想\n358件', '#\n社会人1年目のわたしへ\nこれからラボ\n2,212件', '#\n新しい仕事に向き合うとき\nwith 日本経済新聞\n8,790件', 'もっと見る', 'マガジン', 'メンバーシップ', '追加', '日時の設定']
+[2026-04-29 06:50:57] FAILED: 最終投稿ボタンが見つかりません
+[2026-04-29 06:50:57] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 418, in main
+    raise Exception("最終投稿ボタンが見つかりません")
+Exception: 最終投稿ボタンが見つかりません
+
+[2026-04-29 06:50:57]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png
+[2026-04-29 06:52:28] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:52:28]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:52:28]   価格     : 600円
+[2026-04-29 06:52:28]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 06:52:30]   note.com/notes/new へ移動...
+[2026-04-29 06:52:34]   現在URL: https://editor.note.com/new
+[2026-04-29 06:52:34]   タイトル入力...
+[2026-04-29 06:52:34]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 06:52:35]   本文をクリップボードに設定...
+[2026-04-29 06:52:35]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 06:52:37]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-04-29 06:52:37]   「公開する」ボタンをクリック...
+[2026-04-29 06:52:40]   価格設定: 600円...
+[2026-04-29 06:52:40]   有料選択: label:has-text("有料")
+[2026-04-29 06:52:40]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 06:52:41]   タグ追加: 恋活
+[2026-04-29 06:52:42]   タグ追加: チャット
+[2026-04-29 06:52:43]   タグ追加: 50代
+[2026-04-29 06:52:43]   最終投稿ボタンをクリック...
+[2026-04-29 06:52:44]   全ボタンをスキャン...
+[2026-04-29 06:52:44]   ページ上のボタン: ['キャンセル', '有料エリア設定', 'ハッシュタグ', '記事タイプ', '記事の追加', 'クーポン', '詳細設定', '#恋活', '#チャット', '#50代', '#相手', '#足跡', '#行動', '#足跡戦略', '#行為', '46,803件\n7月8日まで', '8,610件\n5月15日まで', '5,277件\n5月1日まで', '#\n創作大賞感想\n358件', '#\n社会人1年目のわたしへ\nこれからラボ\n2,212件', '#\n新しい仕事に向き合うとき\nwith 日本経済新聞\n8,790件', 'もっと見る', 'マガジン', 'メンバーシップ', '追加', '日時の設定']
+[2026-04-29 06:52:44] FAILED: 最終投稿ボタンが見つかりません
+[2026-04-29 06:52:44] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 427, in main
+    raise Exception("最終投稿ボタンが見つかりません")
+Exception: 最終投稿ボタンが見つかりません
+
+[2026-04-29 06:52:45]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png
+[2026-04-29 06:54:02] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:54:02]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:54:02]   価格     : 600円
+[2026-04-29 06:54:02]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 06:54:04]   note.com/notes/new へ移動...
+[2026-04-29 06:54:08]   現在URL: https://editor.note.com/new
+[2026-04-29 06:54:08]   タイトル入力...
+[2026-04-29 06:54:08]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 06:54:08]   本文をクリップボードに設定...
+[2026-04-29 06:54:08]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 06:54:11]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-04-29 06:54:11]   「公開する」ボタンをクリック...
+[2026-04-29 06:54:13]   価格設定: 600円...
+[2026-04-29 06:54:14]   有料選択: label:has-text("有料")
+[2026-04-29 06:54:14]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 06:54:15]   タグ追加: 恋活
+[2026-04-29 06:54:16]   タグ追加: チャット
+[2026-04-29 06:54:16]   タグ追加: 50代
+[2026-04-29 06:54:16]   最終投稿ボタンをクリック...
+[2026-04-29 06:54:18]   全ボタンをスキャン...
+[2026-04-29 06:54:18]   ページ上のボタン: ['キャンセル', '有料エリア設定', 'ハッシュタグ', '記事タイプ', '記事の追加', 'クーポン', '詳細設定', '#恋活', '#チャット', '#50代', '#相手', '#足跡', '#行動', '#足跡戦略', '#行為', '46,803件\n7月8日まで', '8,610件\n5月15日まで', '5,277件\n5月1日まで', '#\n創作大賞感想\n358件', '#\n社会人1年目のわたしへ\nこれからラボ\n2,212件', '#\n新しい仕事に向き合うとき\nwith 日本経済新聞\n8,790件', 'もっと見る', 'マガジン', 'メンバーシップ', '追加', '日時の設定']
+[2026-04-29 06:54:18]   全クリッカブル要素をスキャン...
+[2026-04-29 06:54:18]   クリッカブル要素: []
+[2026-04-29 06:54:18]   現在URL: https://editor.note.com/notes/ne1262a1f3bed/publish/
+[2026-04-29 06:54:18] FAILED: 最終投稿ボタンが見つかりません
+[2026-04-29 06:54:18] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 469, in main
+    raise Exception("最終投稿ボタンが見つかりません")
+Exception: 最終投稿ボタンが見つかりません
+
+[2026-04-29 06:54:18]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png
+[2026-04-29 06:55:46] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 06:55:46]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 06:55:46]   価格     : 600円
+[2026-04-29 06:55:46]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 06:55:48]   note.com/notes/new へ移動...
+[2026-04-29 06:55:52]   現在URL: https://editor.note.com/new
+[2026-04-29 06:55:52]   タイトル入力...
+[2026-04-29 06:55:52]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 06:55:53]   本文をクリップボードに設定...
+[2026-04-29 06:55:53]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 06:55:56]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-04-29 06:55:56]   「公開する」ボタンをクリック...
+[2026-04-29 06:55:58]   価格設定: 600円...
+[2026-04-29 06:55:58]   有料選択: label:has-text("有料")
+[2026-04-29 06:55:58]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 06:55:59]   タグ追加: 恋活
+[2026-04-29 06:56:00]   タグ追加: チャット
+[2026-04-29 06:56:01]   タグ追加: 50代
+[2026-04-29 06:56:01]   最終投稿ボタンをクリック...
+[2026-04-29 06:56:02]   全ボタンをスキャン...
+[2026-04-29 06:56:02]   ページ上のボタン: ['キャンセル', '有料エリア設定', 'ハッシュタグ', '記事タイプ', '記事の追加', 'クーポン', '詳細設定', '#恋活', '#チャット', '#50代', '#相手', '#足跡', '#行動', '#足跡戦略', '#行為', '46,803件\n7月8日まで', '8,610件\n5月15日まで', '5,277件\n5月1日まで', '#\n新しい仕事に向き合うとき\nwith 日本経済新聞\n8,790件', '#\n社会人1年目のわたしへ\nこれからラボ\n2,212件', 'もっと見る', 'マガジン', 'メンバーシップ', '追加', '日時の設定']
+[2026-04-29 06:56:02]   全クリッカブル要素をスキャン...
+[2026-04-29 06:56:02]   クリッカブル要素: []
+[2026-04-29 06:56:02]   DOM全要素サーチ（非表示含む）...
+[2026-04-29 06:56:02]   投稿/公開テキスト要素: [{'tag': 'HEAD', 'id': '', 'cls': '', 'txt': '公開設定 | note@charset ', 'visible': False}, {'tag': 'TITLE', 'id': '', 'cls': '', 'txt': '公開設定 | note', 'visible': False}, {'tag': 'DIV', 'id': '__next', 'cls': '', 'txt': 'キャンセル\n有料エリア設定\n公開設定\nハ', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': '| isolate', 'txt': 'キャンセル\n有料エリア設定\n公開設定\nハ', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'relative min-h-screen', 'txt': 'キャンセル\n有料エリア設定\n公開設定\nハ', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'md:flex', 'txt': '公開設定\nハッシュタグ\n記事タイプ\n記事', 'visible': True}, {'tag': 'DIV', 'id': 'menu', 'cls': 'sc-1a8b219b-0 eAutUf', 'txt': '公開設定\nハッシュタグ\n記事タイプ\n記事', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'sc-1a8b219b-1 fVPJeZ', 'txt': '公開設定\nハッシュタグ\n記事タイプ\n記事', 'visible': True}, {'tag': 'H1', 'id': '', 'cls': 'sc-1a8b219b-2 iktdps', 'txt': '公開設定', 'visible': True}, {'tag': 'MAIN', 'id': '', 'cls': 'sc-cd495aad-0 hkHEqM', 'txt': 'ハッシュタグ\n#恋活\n#チャット\n#50', 'visible': True}, {'tag': 'SECTION', 'id': '', 'cls': 'w-full border-none pt-8', 'txt': 'クーポン\n使用しない\n\n公開中のクーポン', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'mt-0 box-border h-full whitespace-pre-wrap pt-4', 'txt': '使用しない\n\n公開中のクーポンはありませ', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'space-y-4', 'txt': '使用しない\n\n公開中のクーポンはありませ', 'visible': True}, {'tag': 'P', 'id': '', 'cls': 'text-sm text-text-secondary', 'txt': '公開中のクーポンはありません', 'visible': True}, {'tag': 'SECTION', 'id': '', 'cls': 'w-full border-none pt-8', 'txt': '詳細設定\nクリエイターページに表示\n記事', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'mt-0 box-border h-full whitespace-pre-wrap pt-4', 'txt': 'クリエイターページに表示\n記事の自動翻訳', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': '', 'txt': 'クリエイターページに表示\n記事の自動翻訳', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'flex w-full flex-col gap-4 border-b border-solid b', 'txt': '予約投稿\nプレミアム\n日時の設定', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'flex w-full items-center justify-between gap-4', 'txt': '予約投稿\nプレミアム\n日時の設定', 'visible': True}, {'tag': 'DIV', 'id': '', 'cls': 'flex flex-col', 'txt': '予約投稿\nプレミアム', 'visible': True}, {'tag': 'H3', 'id': '', 'cls': 'flex items-center gap-2 text-sm', 'txt': '予約投稿\nプレミアム', 'visible': True}]
+[2026-04-29 06:56:02]   「有料エリア設定」経由で公開を試みる...
+[2026-04-29 06:56:06]   有料エリア設定後のボタン: button:has-text("投稿する")
+[2026-04-29 06:56:09] SUCCESS: https://editor.note.com/notes/n11ca69d39a12/publish/
+[2026-04-29 06:56:09]   auth_state.json 更新完了
+[2026-04-29 07:34:45] 投稿開始: 【50歳のノウハウ⑱】チャットレディに「足跡」を残すだけで伝わること——小さな存在証明の技術
+[2026-04-29 07:34:45]   ファイル : article39_footprint_signal_for_posting.txt
+[2026-04-29 07:34:45]   価格     : 600円
+[2026-04-29 07:34:45]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 07:34:48]   note.com/notes/new へ移動...
+[2026-04-29 07:34:59]   現在URL: https://editor.note.com/new
+[2026-04-29 07:34:59]   タイトル入力...
+[2026-04-29 07:34:59]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 07:35:00]   カバー画像アップロード: cover_image.jpg...
+[2026-04-29 07:35:05]   カバー画像: セレクタ見つからずスキップ（公開設定で手動設定が必要）
+[2026-04-29 07:35:05]   本文をクリップボードに設定...
+[2026-04-29 07:35:05]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 07:35:08]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-04-29 07:35:08]   「公開する」ボタンをクリック...
+[2026-04-29 07:35:10]   価格設定: 600円...
+[2026-04-29 07:35:11]   有料選択: label:has-text("有料")
+[2026-04-29 07:35:11]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 07:35:12]   タグ追加: 恋活
+[2026-04-29 07:35:13]   タグ追加: チャット
+[2026-04-29 07:35:14]   タグ追加: 50代
+[2026-04-29 07:35:14]   最終投稿ボタンをクリック...
+[2026-04-29 07:35:14]   「有料エリア設定」をクリック（有料記事の新UIフロー）...
+[2026-04-29 07:35:17]   有料エリア設定後のボタンを検索...
+[2026-04-29 07:35:17]   最終ボタン発見: button:has-text("投稿する")
+[2026-04-29 07:35:20] SUCCESS: https://editor.note.com/notes/na799e9062cc0/publish/
+[2026-04-29 07:35:20]   auth_state.json 更新完了
+[2026-04-29 07:36:34] 投稿開始: 【50歳の実録⑲】「5年ぶりにいいかもと思った人に、距離で負けた」——チャットレディKさんの珍しい恋愛話
+[2026-04-29 07:36:34]   ファイル : article40_k_unrequited_love_for_posting.txt
+[2026-04-29 07:36:34]   価格     : 600円
+[2026-04-29 07:36:34]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 07:36:45]   note.com/notes/new へ移動...
+[2026-04-29 07:36:48]   現在URL: https://editor.note.com/new
+[2026-04-29 07:36:48]   タイトル入力...
+[2026-04-29 07:36:48]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 07:36:49]   カバー画像アップロード: cover_image.jpg...
+[2026-04-29 07:36:51]   ヘッダー画像アイコンクリック: [aria-label*="画像を追加"]
+[2026-04-29 07:36:55]   カバー画像アップロード成功: cover_image.jpg
+[2026-04-29 07:36:56]   本文をクリップボードに設定...
+[2026-04-29 07:36:56]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 07:37:26]   方法A失敗: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".ProseMirror[contenteditable=\"true\"]").first
+    - locator resolved to <div translate="no" role="textbox" aria-multiline="true" contenteditable="true" data-placeholder="あなたの作品をたのしみにしています。" class="ProseMirror note-common-styles__textnote-body">…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+[2026-04-29 07:37:26]   方法B: Windowsクリップボード → Ctrl+V...
+[2026-04-29 07:39:59] 投稿開始: 【50歳の実録⑲】「5年ぶりにいいかもと思った人に、距離で負けた」——チャットレディKさんの珍しい恋愛話
+[2026-04-29 07:39:59]   ファイル : article40_k_unrequited_love_for_posting.txt
+[2026-04-29 07:39:59]   価格     : 600円
+[2026-04-29 07:39:59]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 07:40:04]   note.com/notes/new へ移動...
+[2026-04-29 07:40:07]   現在URL: https://editor.note.com/new
+[2026-04-29 07:40:07]   タイトル入力...
+[2026-04-29 07:40:07]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 07:40:08]   カバー画像アップロード: cover_image.jpg...
+[2026-04-29 07:40:10]   ヘッダー画像アイコンクリック: [aria-label*="画像を追加"]
+[2026-04-29 07:40:14]   カバー画像ファイルセット完了: cover_image.jpg
+[2026-04-29 07:40:16]   クロップ確認ボタンクリック: 保存
+[2026-04-29 07:40:16]   カバー画像アップロード成功: cover_image.jpg
+[2026-04-29 07:40:17]   本文をクリップボードに設定...
+[2026-04-29 07:40:17]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 07:40:47]   方法A失敗: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".ProseMirror[contenteditable=\"true\"]").first
+    - locator resolved to <div translate="no" role="textbox" aria-multiline="true" contenteditable="true" data-placeholder="頑張っていますね！" class="ProseMirror note-common-styles__textnote-body">…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+[2026-04-29 07:40:47]   方法B: Windowsクリップボード → Ctrl+V...
+[2026-04-29 07:41:17]   方法B失敗: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".ProseMirror[contenteditable=\"true\"]").first
+    - locator resolved to <div translate="no" role="textbox" aria-multiline="true" contenteditable="true" data-placeholder="頑張っていますね！" class="ProseMirror note-common-styles__textnote-body">…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+[2026-04-29 07:41:17]   方法C: keyboard.insert_text フォールバック...
+[2026-04-29 07:41:47]   方法C失敗: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".ProseMirror[contenteditable=\"true\"]").first
+    - locator resolved to <div translate="no" role="textbox" aria-multiline="true" contenteditable="true" data-placeholder="頑張っていますね！" class="ProseMirror note-common-styles__textnote-body">…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div data-testid="cropper" class="reactEasyCrop_CropArea reactEasyCrop_CropAreaGrid"></div> from <div class="ReactModalPortal">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+[2026-04-29 07:41:47] FAILED: 本文の入力に失敗しました（全方法試行済み）
+[2026-04-29 07:41:47] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 386, in main
+    if not pasted:
+        ^^^^^^^^^^^
+Exception: 本文の入力に失敗しました（全方法試行済み）
+
+[2026-04-29 07:41:47]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png
+[2026-04-29 07:49:33] 投稿開始: 【50歳の実録⑲】「5年ぶりにいいかもと思った人に、距離で負けた」——チャットレディKさんの珍しい恋愛話
+[2026-04-29 07:49:33]   ファイル : article40_k_unrequited_love_for_posting.txt
+[2026-04-29 07:49:33]   価格     : 600円
+[2026-04-29 07:49:33]   タグ     : ['恋活', 'チャット', '50代']
+[2026-04-29 07:49:35]   note.com/notes/new へ移動...
+[2026-04-29 07:49:39]   現在URL: https://editor.note.com/new
+[2026-04-29 07:49:39]   タイトル入力...
+[2026-04-29 07:49:39]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-04-29 07:49:39]   カバー画像アップロード: cover_image.jpg...
+[2026-04-29 07:49:41]   ヘッダー画像アイコンクリック: [aria-label*="画像を追加"]
+[2026-04-29 07:49:45]   カバー画像ファイルセット完了: cover_image.jpg
+[2026-04-29 07:49:47]   クロップモーダル検出（reactEasyCrop_CropArea）
+[2026-04-29 07:49:47]   モーダル内ボタン: ['キャンセル', '保存']
+[2026-04-29 07:49:47]   クロップ確認ボタンクリック (force=True): 保存
+[2026-04-29 07:49:50]   クロップモーダル閉じた（force click）
+[2026-04-29 07:49:50]   カバー画像アップロード成功: cover_image.jpg
+[2026-04-29 07:49:51]   本文をクリップボードに設定...
+[2026-04-29 07:49:51]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-04-29 07:49:54]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-04-29 07:49:54]   「公開する」ボタンをクリック...
+[2026-04-29 07:49:56]   価格設定: 600円...
+[2026-04-29 07:49:56]   有料選択: label:has-text("有料")
+[2026-04-29 07:49:56]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-04-29 07:49:57]   タグ追加: 恋活
+[2026-04-29 07:49:58]   タグ追加: チャット
+[2026-04-29 07:49:59]   タグ追加: 50代
+[2026-04-29 07:49:59]   最終投稿ボタンをクリック...
+[2026-04-29 07:49:59]   「有料エリア設定」をクリック（有料記事の新UIフロー）...
+[2026-04-29 07:50:02]   有料エリア設定後のボタンを検索...
+[2026-04-29 07:50:02]   最終ボタン発見: button:has-text("投稿する")
+[2026-04-29 07:50:05] SUCCESS: https://editor.note.com/notes/n987e5b517935/publish/
+[2026-04-29 07:50:05]   auth_state.json 更新完了
+[2026-05-03 15:35:21] キューモード: article41_happiest_place_for_posting.txt (13本残り)
+[2026-05-03 15:36:10] キューモード: article41_happiest_place_for_posting.txt (13本残り)
+[2026-05-03 15:36:10] 投稿開始: 【50歳の実録⑳】「ここ以外はしゃーないわね」——チャットレディKさんと、パソコンの前が一番幸せな理由
+[2026-05-03 15:36:10]   ファイル : article41_happiest_place_for_posting.txt
+[2026-05-03 15:36:10]   価格     : 600円
+[2026-05-03 15:36:10]   タグ     : ['恋活', 'チャット', '50代']
+[2026-05-03 15:36:23]   note.com/notes/new へ移動...
+[2026-05-03 15:36:30]   現在URL: https://editor.note.com/new
+[2026-05-03 15:36:30]   タイトル入力...
+[2026-05-03 15:36:30]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-05-03 15:36:30]   カバー画像アップロード: cover_image.jpg...
+[2026-05-03 15:36:32]   ヘッダー画像アイコンクリック: [aria-label*="画像を追加"]
+[2026-05-03 15:36:36]   カバー画像ファイルセット完了: cover_image.jpg
+[2026-05-03 15:36:38]   クロップモーダル検出（reactEasyCrop_CropArea）
+[2026-05-03 15:36:38]   モーダル内ボタン: ['キャンセル', '保存']
+[2026-05-03 15:36:38]   クロップ確認ボタンクリック (force=True): 保存
+[2026-05-03 15:36:41]   クロップモーダル閉じた（force click）
+[2026-05-03 15:36:41]   カバー画像アップロード成功: cover_image.jpg
+[2026-05-03 15:36:42]   本文をクリップボードに設定...
+[2026-05-03 15:36:42]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-05-03 15:36:45]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-05-03 15:36:45]   「公開する」ボタンをクリック...
+[2026-05-03 15:36:47]   価格設定: 600円...
+[2026-05-03 15:36:48]   有料選択: label:has-text("有料")
+[2026-05-03 15:36:48]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-05-03 15:36:48]   タグ追加: 恋活
+[2026-05-03 15:36:49]   タグ追加: チャット
+[2026-05-03 15:36:50]   タグ追加: 50代
+[2026-05-03 15:36:50]   最終投稿ボタンをクリック...
+[2026-05-03 15:36:50]   「有料エリア設定」をクリック（有料記事の新UIフロー）...
+[2026-05-03 15:36:53]   有料エリア設定後のボタンを検索...
+[2026-05-03 15:36:53]   最終ボタン発見: button:has-text("投稿する")
+[2026-05-03 15:36:56] SUCCESS: https://editor.note.com/notes/nae8995adb55a/publish/
+[2026-05-03 15:36:56]   auth_state.json 更新完了
+[2026-05-03 15:36:56]   キュー更新: 次の記事 → article42_m_first_meeting_for_posting.txt
+[2026-05-03 15:36:56]   残りキュー: 11本
+[2026-05-06 20:31:04] キューモード: article42_m_first_meeting_for_posting.txt (12本残り)
+[2026-05-06 20:31:04] 投稿開始: 【50歳の実録21】「こちらが女神的天使的妖精的な存在ですが」——Mさんと話した最初の夜、空気が変わった
+[2026-05-06 20:31:04]   ファイル : article42_m_first_meeting_for_posting.txt
+[2026-05-06 20:31:04]   価格     : 600円
+[2026-05-06 20:31:04]   タグ     : ['恋活', 'チャット', '50代']
+[2026-05-06 20:31:19]   note.com/notes/new へ移動...
+[2026-05-06 20:31:23]   現在URL: https://editor.note.com/new
+[2026-05-06 20:31:23]   タイトル入力...
+[2026-05-06 20:31:23]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-05-06 20:31:24]   カバー画像アップロード: cover_image.jpg...
+[2026-05-06 20:31:26]   ヘッダー画像アイコンクリック: [aria-label*="画像を追加"]
+[2026-05-06 20:31:30]   カバー画像ファイルセット完了: cover_image.jpg
+[2026-05-06 20:31:32]   クロップモーダル検出（reactEasyCrop_CropArea）
+[2026-05-06 20:31:32]   モーダル内ボタン: ['キャンセル', '保存']
+[2026-05-06 20:31:32]   クロップ確認ボタンクリック (force=True): 保存
+[2026-05-06 20:31:35]   クロップモーダル閉じた（force click）
+[2026-05-06 20:31:35]   カバー画像アップロード成功: cover_image.jpg
+[2026-05-06 20:31:35]   本文をクリップボードに設定...
+[2026-05-06 20:31:35]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-05-06 20:31:38]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-05-06 20:31:38]   「公開する」ボタンをクリック...
+[2026-05-06 20:31:40]   価格設定: 600円...
+[2026-05-06 20:31:40]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-05-06 20:31:40]   (タグ '恋活' 追加失敗 - スキップ)
+[2026-05-06 20:31:40]   最終投稿ボタンをクリック...
+[2026-05-06 20:31:40]   全ボタンをスキャン...
+[2026-05-06 20:31:40]   ページ上のボタン: []
+[2026-05-06 20:31:40]   全クリッカブル要素をスキャン...
+[2026-05-06 20:31:40]   クリッカブル要素: []
+[2026-05-06 20:31:40]   DOM全要素サーチ（非表示含む）...
+[2026-05-06 20:31:40]   投稿/公開テキスト要素: []
+[2026-05-06 20:31:40]   「有料エリア設定」経由で公開を試みる...
+[2026-05-06 20:31:40]   現在URL: https://editor.note.com/notes/n0d6f4183797b/publish/
+[2026-05-06 20:31:41] FAILED: 最終投稿ボタンが見つかりません
+[2026-05-06 20:31:41] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 724, in main
+    raise Exception("最終投稿ボタンが見つかりません")
+Exception: 最終投稿ボタンが見つかりません
+
+[2026-05-06 20:31:41]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png
+[2026-05-06 20:55:47] キューモード: article42_m_first_meeting_for_posting.txt (12本残り)
+[2026-05-06 20:55:47] 投稿開始: 【50歳の実録21】「こちらが女神的天使的妖精的な存在ですが」——Mさんと話した最初の夜、空気が変わった
+[2026-05-06 20:55:47]   ファイル : article42_m_first_meeting_for_posting.txt
+[2026-05-06 20:55:47]   価格     : 600円
+[2026-05-06 20:55:47]   タグ     : ['恋活', 'チャット', '50代']
+[2026-05-06 20:55:48]   note.com/notes/new へ移動...
+[2026-05-06 20:55:54]   現在URL: https://editor.note.com/new
+[2026-05-06 20:55:54]   タイトル入力...
+[2026-05-06 20:55:54]   タイトルセレクタ: textarea[placeholder*="タイトル"]
+[2026-05-06 20:55:55]   カバー画像アップロード: cover_image.jpg...
+[2026-05-06 20:55:56]   ヘッダー画像アイコンクリック: [aria-label*="画像を追加"]
+[2026-05-06 20:56:00]   カバー画像ファイルセット完了: cover_image.jpg
+[2026-05-06 20:56:02]   クロップモーダル検出（reactEasyCrop_CropArea）
+[2026-05-06 20:56:02]   モーダル内ボタン: ['キャンセル', '保存']
+[2026-05-06 20:56:03]   クロップ確認ボタンクリック (force=True): 保存
+[2026-05-06 20:56:06]   クロップモーダル閉じた（force click）
+[2026-05-06 20:56:06]   カバー画像アップロード成功: cover_image.jpg
+[2026-05-06 20:56:06]   本文をクリップボードに設定...
+[2026-05-06 20:56:06]   方法A: ブラウザclipboard API → Ctrl+V...
+[2026-05-06 20:56:09]   方法A成功: .ProseMirror[contenteditable="true"]
+[2026-05-06 20:56:09]   「公開する」ボタンをクリック...
+[2026-05-06 20:56:11]   価格設定: 600円...
+[2026-05-06 20:56:11]   タグ設定: ['恋活', 'チャット', '50代']...
+[2026-05-06 20:56:11]   (タグ '恋活' 追加失敗 - スキップ)
+[2026-05-06 20:56:11]   最終投稿ボタンをクリック...
+[2026-05-06 20:56:11]   全ボタンをスキャン...
+[2026-05-06 20:56:11]   ページ上のボタン: ['', '会話をやりなおす', '誤字、表記揺れを修正', '内容のレビューを聞く', '', '閉じる', '', '下書き保存', '保存中', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+[2026-05-06 20:56:11]   全クリッカブル要素をスキャン...
+[2026-05-06 20:56:11]   クリッカブル要素: []
+[2026-05-06 20:56:11]   DOM全要素サーチ（非表示含む）...
+[2026-05-06 20:56:11]   投稿/公開テキスト要素: []
+[2026-05-06 20:56:11]   「有料エリア設定」経由で公開を試みる...
+[2026-05-06 20:56:11]   現在URL: https://editor.note.com/notes/neb2a1d0f4179/edit/
+[2026-05-06 20:56:11] FAILED: 最終投稿ボタンが見つかりません
+[2026-05-06 20:56:11] Traceback (most recent call last):
+  File "C:\Users\sawas\.openclaw\scheduled\daily-note-post\post_to_note.py", line 724, in main
+    raise Exception("最終投稿ボタンが見つかりません")
+Exception: 最終投稿ボタンが見つかりません
+
+[2026-05-06 20:56:11]   スクリーンショット: C:\Users\sawas\.openclaw\scheduled\daily-note-post\error_screenshot.png

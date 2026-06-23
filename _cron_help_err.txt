@@ -1,0 +1,5 @@
+Config (C:\Users\sawas\.openclaw\openclaw.json): missing env var "ZAI_API_KEY" at models.providers.zai.apiKey - feature using this value will be unavailable
+Config (C:\Users\sawas\.openclaw\openclaw.json): missing env var "ZAI_API_KEY" at models.providers.zai-coding.apiKey - feature using this value will be unavailable
+Config (C:\Users\sawas\.openclaw\openclaw.json): missing env var "OPENROUTER_API_KEY" at models.providers.openrouter.apiKey - feature using this value will be unavailable
+Config (C:\Users\sawas\.openclaw\openclaw.json): missing env var "DISCORD_BOT_TOKEN" at channels.discord.token - feature using this value will be unavailable
+Config (C:\Users\sawas\.openclaw\openclaw.json): missing env var "OPENCLAW_GATEWAY_TOKEN" at gateway.auth.token - feature using this value will be unavailable

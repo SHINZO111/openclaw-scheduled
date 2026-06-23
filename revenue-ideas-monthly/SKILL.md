@@ -1,0 +1,71 @@
+---
+name: revenue-ideas-monthly
+description: 毎月15日10:00 JST - 収益アイデア3ステージ管理（KPI確認→昇格→新規ブレスト）
+---
+
+**[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
+
+⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
+
+毎月の収益アイデア実行ループを回します（3ステージ管理）。
+
+---
+
+## Step 1: revenue-ideas.md を読み込む
+
+`C:\Users\sawas\.openclaw\workspace\memory\revenue-ideas.md` を Read で読み込む。
+
+---
+
+## Step 2: In Progress 全件のKPI確認
+
+In Progress セクションの各アイデアを確認:
+
+```
+判定ロジック:
+- 期限が過ぎていてKPI達成 → Done に移動 + learnings.md に「成功パターン」記録
+- 期限が過ぎていてKPI未達 → alerts.md に「撤退/継続判断」としてSHINZOへ質問
+- 期限内で進捗あり → 期限を 30 日延長してコメント追記
+- 期限内で進捗ゼロ → alerts.md に「停滞アラート」追記
+```
+
+---
+
+## Step 3: Icebox から 1 件を In Progress に昇格（必須）
+
+以下の優先順位で 1 件選ぶ:
+1. ランク S / A のもの
+2. 「昇格条件」が今すぐ満たせるもの
+3. 最も登録日が古いもの
+
+選んだアイデアの In Progress レコードを作成:
+```
+| N | **[アイデア名]** | [ランク] | YYYY-MM-DD | [具体的KPI] | [最初のアクション] | YYYY-MM-DD+30日 |
+```
+
+---
+
+## Step 4: A/B収益タスク比率を growth-metrics.md に記録
+
+`C:\Users\sawas\.openclaw\workspace\memory\growth-metrics.md` の「収益インパクト追跡」セクションを更新:
+- 今月のA級タスク数
+- 今月のB級タスク数  
+- A級比率（目標30%以上）
+
+A級タスクが 0 件の月なら alerts.md に 🟠 警告を追記する。
+
+---
+
+## Step 5: 新規アイデアのブレインストーミング
+
+Web Search で「AIビジネス 新サービス 2026」「建設業 DX 事例」を検索して、
+revenue-ideas.md の Icebox に 1〜3 件の新規アイデアを追加する:
+```
+| N | **[新規アイデア]** | [ランク] | YYYY-MM-DD | [評価コメント] | [昇格条件] |
+```
+
+---
+
+## 完了宣言
+
+「💰 収益ループ実行完了 YYYY-MM | InProgress昇格: [アイデア名] | Done移動: N件 | 新規Icebox: N件 | A級比率: X%」
