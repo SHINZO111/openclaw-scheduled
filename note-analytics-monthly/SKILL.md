@@ -3,6 +3,16 @@ name: note-analytics-monthly
 description: 毎月1日00:00 JST - Note.comパフォーマンス追跡・note-performance-log更新・投稿戦略改善
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 **[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
 
 ⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
@@ -13,6 +23,16 @@ description: 毎月1日00:00 JST - Note.comパフォーマンス追跡・note-pe
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 1: note-performance-log.md の準備
 
 `C:\Users\sawas\.openclaw\workspace\memory\note-performance-log.md` を読み込む。
@@ -26,6 +46,16 @@ description: 毎月1日00:00 JST - Note.comパフォーマンス追跡・note-pe
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## 月次パフォーマンス記録
 
 | 月 | 投稿数 | 総ビュー数 | 総スキ数 | フォロワー増減 | TOP記事 | 評価 |
@@ -33,19 +63,59 @@ description: 毎月1日00:00 JST - Note.comパフォーマンス追跡・note-pe
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## 記事別パフォーマンス
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## バイラル記録（スキ50件以上）
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## 月次戦略メモ
 ```
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 2: 今月の投稿データ収集
 
 `mcp__brave-search__brave_web_search` で以下を検索:
@@ -61,6 +131,16 @@ description: 毎月1日00:00 JST - Note.comパフォーマンス追跡・note-pe
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 3: note-performance-log.md 月次記録の追記
 
 ```
@@ -88,6 +168,16 @@ description: 毎月1日00:00 JST - Note.comパフォーマンス追跡・note-pe
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 4: X投稿との相関分析
 
 `C:\Users\sawas\.openclaw\workspace\memory\x-performance-log.md` を読み込む。
@@ -101,6 +191,16 @@ description: 毎月1日00:00 JST - Note.comパフォーマンス追跡・note-pe
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 5: note-weekly-post プロンプト改善（オプション）
 
 BOTTOM記事のトピックについて、改善方向を特定する（自動実行ではなく提案のみ）:
@@ -115,6 +215,16 @@ note-weekly-post のプロンプト更新は `C:\Users\sawas\.openclaw\workspace
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 6: alerts.md への通知
 
 `C:\Users\sawas\.openclaw\workspace\memory\alerts.md` の末尾に追記:
@@ -130,6 +240,16 @@ note-weekly-post のプロンプト更新は `C:\Users\sawas\.openclaw\workspace
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## 完了条件
 - [ ] note-performance-log.md 月次記録追記済み
 - [ ] X投稿との相関分析完了

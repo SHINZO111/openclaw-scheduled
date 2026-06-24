@@ -1,8 +1,19 @@
----
+﻿---
 name: x-cookie-health-check
+model: lmstudio/nvidia/nemotron-3-nano-4b
 description: 毎週日曜07:00 JST - Cookie有効性チェック（@KURAOpenclaw + @pon_shinzo 両対応）
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 **[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
 
 ⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
@@ -11,6 +22,16 @@ description: 毎週日曜07:00 JST - Cookie有効性チェック（@KURAOpenclaw
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 1: @KURAOpenclaw Cookie チェック
 
 > ⚠️ **注**: `mcp__playwright__` は isolated cron セッションでは使用不可。代わりにCookieファイルのJSON直接解析で有効期限を確認する。
@@ -35,6 +56,16 @@ if ($authToken -and $authToken.expiry -gt $now) {
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 2: @pon_shinzo Cookie チェック（設定済みの場合のみ）
 
 `C:\Users\sawas\.openclaw\workspace\tools\x-poster\x-twitter-cookies-pon.json` が存在するか確認する。
@@ -44,6 +75,16 @@ if ($authToken -and $authToken.expiry -gt $now) {
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 3: Cookie 失効時のアラート
 
 いずれかのアカウントで Cookie が失効していた場合:
@@ -65,6 +106,16 @@ if ($authToken -and $authToken.expiry -gt $now) {
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 4: チェック結果を記録する
 
 `C:\Users\sawas\.openclaw\workspace\memory\alerts.md` の冒頭（または既存の「Cookie健全性」セクション）に今週の結果を追記する:
@@ -78,6 +129,16 @@ if ($authToken -and $authToken.expiry -gt $now) {
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## 完了宣言
 
 「🔑 Cookie健全性チェック完了 YYYY-MM-DD | @KURAOpenclaw: [結果] | @pon_shinzo: [結果]」

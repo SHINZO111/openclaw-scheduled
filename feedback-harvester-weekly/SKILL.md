@@ -3,6 +3,16 @@ name: feedback-harvester-weekly
 description: 毎週月曜06:00 JST - SHINZOの承認/却下コメントを学習・判断パターンをMemory MCPに転写
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 **[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
 
 ⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
@@ -13,6 +23,16 @@ description: 毎週月曜06:00 JST - SHINZOの承認/却下コメントを学習
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 1: soul-evolution-proposals.md の差分確認
 
 `C:\Users\sawas\.openclaw\workspace\memory\soul-evolution-proposals.md` を読み込む。
@@ -23,6 +43,16 @@ description: 毎週月曜06:00 JST - SHINZOの承認/却下コメントを学習
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 2: フィードバックの分類・意図推定
 
 各フィードバックについて判断意図を推定する:
@@ -44,6 +74,16 @@ description: 毎週月曜06:00 JST - SHINZOの承認/却下コメントを学習
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 3: cronログファイルへの判断パターン記録
 
 `C:\Users\sawas\.openclaw\workspace\memory\cron-logs\feedback-harvester-weekly.md` に以下を追記:
@@ -62,6 +102,16 @@ description: 毎週月曜06:00 JST - SHINZOの承認/却下コメントを学習
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 4: learnings.md への転写
 
 `C:\Users\sawas\.openclaw\workspace\memory\learnings.md` 本日セクションに追記:
@@ -82,6 +132,16 @@ description: 毎週月曜06:00 JST - SHINZOの承認/却下コメントを学習
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 5: 未回答提案のリマインダー
 
 soul-evolution-proposals.mdに「未回答」（✅❌🔄のいずれもない）提案が2週間以上ある場合:
@@ -93,6 +153,16 @@ alerts.md に追記:
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 6: 累積パターンサマリー（月初のみ）
 
 月の最初の月曜日の場合:
@@ -111,6 +181,16 @@ alerts.md に追記:
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## 完了条件
 - [ ] soul-evolution-proposals.md の差分確認済み
 - [ ] フィードバックの分類・意図推定完了

@@ -1,5 +1,6 @@
----
+﻿---
 name: x-auto-reply
+model: openrouter/google/gemini-2.5-flash
 description: |
   X（Twitter）自動リプライ監視システムの管理スキル。
   @KURAOpenclaw アカウントの指定ユーザーの投稿を自動検知し、AIでリプライ文を生成・送信する。
@@ -16,6 +17,18 @@ description: |
 ⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。
 
 > ⛔ **[SYSTEM CONSTRAINT]**: cronツールは絶対使用禁止。エラーが発生した場合はDiscordで報告して終了する。
+
+---
+
+## ⚡ Preflight: Playwright ロック確認（**web_search 開始前・最優先**）
+
+**この確認をコンテンツ生成開始前に必ず実行すること:**
+
+1. Read ツールで `C:\Users\sawas\.openclaw\workspace\tools\x-poster\logs\.post.lock` を読む
+2. **ファイルが存在し、中の `ts` が現在時刻（ms）から600000ms＝10分以内** → 別のX投稿ジョブが実行中  
+   Discordに「⚡ 別ジョブ実行中のためスキップ」と1行報告して即終了
+3. **ファイルが存在しない or `ts` が10分超過（stale）** → そのまま続行  
+   （ロック取得は post-to-x.js が自動で行う。手動作成は不要）
 
 ---
 

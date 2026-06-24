@@ -1,5 +1,6 @@
----
+﻿---
 name: x-post-ai-latest
+model: openrouter/google/gemini-2.5-flash
 description: |
   OpenClaw から X（Twitter、@KURAOpenclaw アカウント）へ AI最新情報関連の自動投稿を行うスキル。
   Playwright＋Cookie認証ベースで、投稿プロトコル（本文250-400字・リプ600-1000字、URL必須、ハッシュタグ/絵文字禁止、末尾「詳細はリプ欄へ」）、ロックファイル、検証、ログ、投稿後検証までを含む。
@@ -8,6 +9,17 @@ description: |
   - 「最新AIニュースをツイートして」
   - 「AI最新投稿」
   `post-to-x.bat` / `post-to-x.js` をPowerShellから呼び出す。AI最新情報発信用途。
+---
+
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
 ---
 
 **[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
@@ -25,6 +37,18 @@ description: |
 > ```
 > & "C:\Users\sawas\.openclaw\workspace\tools\x-poster\post-to-x.bat" "本文" "リプライ文"
 > ```
+
+## ⚡ Preflight: Playwright ロック確認（**web_search 開始前・最優先**）
+
+**この確認をコンテンツ生成開始前に必ず実行すること:**
+
+1. Read ツールで `C:\Users\sawas\.openclaw\workspace\tools\x-poster\logs\.post.lock` を読む
+2. **ファイルが存在し、中の `ts` が現在時刻（ms）から600000ms＝10分以内** → 別のX投稿ジョブが実行中  
+   Discordに「⚡ 別ジョブ実行中のためスキップ」と1行報告して即終了
+3. **ファイルが存在しない or `ts` が10分超過（stale）** → そのまま続行  
+   （ロック取得は post-to-x.js が自動で行う。手動作成は不要）
+
+---
 
 # x-post スキル（Xへの自動投稿）
 

@@ -1,8 +1,19 @@
----
+﻿---
 name: OpenClaw_X_Monitoring
+model: lmstudio/nvidia/nemotron-3-nano-4b
 description: 毎日19:00 JST - @KURAOpenclaw のX投稿パフォーマンスを日次モニタリング・異常検知
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 **[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
 
 ⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
@@ -16,6 +27,16 @@ description: 毎日19:00 JST - @KURAOpenclaw のX投稿パフォーマンスを�
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 1: 当日の投稿ログ確認
 
 `C:\Users\sawas\.openclaw\workspace\memory\x-performance-log.md` を Read で読み込む。
@@ -29,6 +50,16 @@ description: 毎日19:00 JST - @KURAOpenclaw のX投稿パフォーマンスを�
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 2: 異常検知チェック
 
 以下のいずれかに該当する場合は即座にアラート:
@@ -45,6 +76,16 @@ x-performance-log.md に直近24時間でいいね50件超の記録があれば�
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 3: 日次サマリー記録
 
 `C:\Users\sawas\.openclaw\workspace\memory\x-performance-log.md` に以下を追記:
@@ -58,6 +99,16 @@ x-performance-log.md に直近24時間でいいね50件超の記録があれば�
 
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 4: 完了報告
 
 ```

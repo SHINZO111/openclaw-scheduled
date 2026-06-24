@@ -113,7 +113,7 @@ DETECTED → GENERATING → WAITING → SENT
 - Primary: `google/gemini-2.5-flash-lite-preview-06-17` via OpenRouter
 - Fallback: `zai/glm-4.7-flash`
 - Config: `max_tokens=120`, `temperature=0.8`
-- Character: factual AI info account, Japanese only, ≤140 chars, no hashtags, 0-1 emoji
+- Character: factual AI info account, replies in same language as original tweet (EN→EN, JA→JA), ≤140 chars, no hashtags, 0-1 emoji
 
 ### Security Constraints
 

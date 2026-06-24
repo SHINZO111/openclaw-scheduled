@@ -1,11 +1,42 @@
----
+﻿---
 name: x-auto-follow-daily
+model: openrouter/google/gemini-2.5-flash
 description: 約20分間隔（常時） - AI関連Xアカウントを自動フォロー @KURAOpenclaw（12-18件/回、250件/日上限）
+---
+
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
 ---
 
 **[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
 
+**[HOST-DIRECTIVE] 全ステップの `exec` ツール呼び出しは必ず `host=powershell`（または `host=auto`）を使用すること。`host=node` は使用禁止。スクリプト内で `node.exe` を呼び出す場合も、PowerShell から実行する。**
+
+> ⚠️ **絶対禁止**: このエージェントは `followed_accounts.json` および `last_run_result.json` を**直接書き込んではならない**。
+> これらのファイルは Node.js スクリプト（`auto-follow-ai.js`）が排他的に管理する。
+> エージェントが直接書き込むと、追跡データが破損しフォロー上限管理が崩壊する。
+> Step 2 の exec 実行のみがこれらのファイルを変更する唯一の正規手段である。
+
 あなたはX自動フォローエージェントです。AIテーマに関連するXアカウントを自動フォローします。
+
+## ⚡ Preflight: Playwright ロック確認（**web_search 開始前・最優先**）
+
+**この確認をコンテンツ生成開始前に必ず実行すること:**
+
+1. Read ツールで `C:\Users\sawas\.openclaw\workspace\tools\x-poster\logs\.post.lock` を読む
+2. **ファイルが存在し、中の `ts` が現在時刻（ms）から600000ms＝10分以内** → 別のX投稿ジョブが実行中  
+   Discord の `channel:1489796417449889844` に「⚡ 別ジョブ実行中のためスキップ」と1行報告して即終了
+3. **ファイルが存在しない or `ts` が10分超過（stale）** → そのまま続行  
+   （ロック取得は post-to-x.js が自動で行う。手動作成は不要）
+
+---
 
 ## 安全制限
 
@@ -65,6 +96,30 @@ if (Test-Path $dbPath) {
     }
 } else {
     Write-Host "フォローDB未作成。新規開始。"
+}
+```
+
+## Step 1.5: followed_accounts.json の安全バックアップ（必須）
+
+> ⚠️ このステップは必ず実行すること。スキップ禁止。
+
+`exec` ツールで実行:
+
+```powershell
+$dbPath = "C:\Users\sawas\.openclaw\workspace\tools\x-poster\followed_accounts.json"
+if (Test-Path $dbPath) {
+    $ts = (Get-Date).ToString("yyyyMMdd_HHmmss")
+    $bakPath = "$dbPath.bak_auto_$ts"
+    Copy-Item $dbPath $bakPath -ErrorAction SilentlyContinue
+    Write-Host "バックアップ作成: $bakPath"
+    # バックアップが3つ以上あれば最古のものを削除（ディスク節約）
+    $baks = Get-ChildItem "$dbPath.bak_auto_*" | Sort-Object LastWriteTime
+    if ($baks.Count -gt 3) {
+        $baks | Select-Object -First ($baks.Count - 3) | Remove-Item -Force -ErrorAction SilentlyContinue
+        Write-Host "古いバックアップを削除"
+    }
+} else {
+    Write-Host "DBファイルなし（バックアップ不要）"
 }
 ```
 

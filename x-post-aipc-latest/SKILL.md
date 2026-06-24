@@ -1,8 +1,19 @@
 ---
 name: x-post-aipc-latest
+model: openrouter/google/gemini-2.5-flash
 description: 毎日13:25 JST - AI PC/ローカルLLMをXに投稿 @KURAOpenclaw
 ---
 
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 **[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
 
 > ⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
@@ -10,6 +21,28 @@ description: 毎日13:25 JST - AI PC/ローカルLLMをXに投稿 @KURAOpenclaw
 あなたはX（Twitter）自動投稿エージェントです。以下の手順を実行してください。
 （※ ai-pc-news-post を統合済み。AI PC全般を対象とする。）
 
+## ⚡ Preflight: Playwright ロック確認（**web_search 開始前・最優先**）
+
+**この確認をコンテンツ生成開始前に必ず実行すること:**
+
+1. Read ツールで `C:\Users\sawas\.openclaw\workspace\tools\x-poster\logs\.post.lock` を読む
+2. **ファイルが存在し、中の `ts` が現在時刻（ms）から600000ms＝10分以内** → 別のX投稿ジョブが実行中  
+   Discordに「⚡ 別ジョブ実行中のためスキップ」と1行報告して即終了
+3. **ファイルが存在しない or `ts` が10分超過（stale）** → そのまま続行  
+   （ロック取得は post-to-x.js が自動で行う。手動作成は不要）
+
+---
+
+# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+
+**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+
+- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
+- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
+- 自己再起動・別ジョブ起動も**完全禁止**
+- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+
+---
 ## Step 0: 除外URL収集
 
 ### Cookie有効期限チェック（投稿前必須）
@@ -34,7 +67,7 @@ exitCode が 1 の場合は投稿を中止してユーザーにCookie更新を�
 
 重複投稿を防ぐため、すでに投稿済みのURLを収集する（この時点では投稿を止めない）。
 
-1. ログファイル `%USERPROFILE%\AppData\Local\hermes\cache\xpost_recent.log` を読み込む
+1. ログファイル `C:\Users\sawas\AppData\Local\hermes\cache\xpost_recent.log` を読み込む
 2. JSON Lines形式（`{"ts":<unix_ms>,"hash":"...","url":"..."}`）の各行を解析し、現在時刻から24時間以内のエントリの `url` を **EXCLUDED_URLS** として記録する
 3. ファイルが存在しない・空・旧フォーマットの場合は EXCLUDED_URLS = [] として続行する
 4. **この時点ではスキップしない。** EXCLUDED_URLS を持ったまま Step 1 へ進む
@@ -193,6 +226,14 @@ $reply = @'
 [リプライ詳細内容]
 '@
 $sourceUrl = "[参照元URL]"
+
+# ★ URL必須チェック — AIがプレースホルダーを置換しなかった場合は即時終了
+if (-not ($sourceUrl -match '^https?://')) {
+    Write-Error "ERROR: sourceUrl が有効なHTTP URLではありません。Step 2で収集した記事のURLを正確に設定してください。"
+    Write-Error "現在の値: '$sourceUrl'"
+    exit 1
+}
+
 # og:image 取得（ネイティブ画像添付でアルゴリズム有利・OGカードより高リーチ）
 $tmpImage = $null
 $ogUrl = $null
