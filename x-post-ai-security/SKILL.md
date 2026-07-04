@@ -1,13 +1,13 @@
 ---
-name: x-post-ai-latest
+name: x-post-ai-security
 description: |
-  OpenClaw から X（Twitter、@KURAOpenclaw アカウント）へ AI最新情報 / 生成AI関連の自動投稿を行うスキル。
+  OpenClaw から X（Twitter、@KURAOpenclaw アカウント）へ AIセキュリティ（プロンプトインジェクション・ディープフェイク・AI悪用対策・AIガバナンス）関連の自動投稿を行うスキル。
   Playwright＋Cookie認証ベースで、投稿プロトコル（本文180-270字・リプ600-1000字、URL必須、ハッシュタグ/絵文字禁止、末尾「詳細はリプ欄へ」）を含む。
   以下のフレーズで起動する：
-  - 「AI最新情報をXで投稿して」
-  - 「生成AIをツイートして」
-  - 「AI最新情報投稿」
-  `post-to-x.bat` / `post-to-x.js` をPowerShellから呼び出す。AI全般・生成AI・LLM・OpenAI/Anthropic/Google発信用途。
+  - 「AIセキュリティをXで投稿して」
+  - 「AIセキュリティをツイートして」
+  - 「AIセキュリティ投稿」
+  `post-to-x.bat` / `post-to-x.js` をPowerShellから呼び出す。プロンプトインジェクション・ディープフェイク検出・AI悪用対策・AIガバナンス/規制発信用途。
 ---
 
 > **[Discord report requirement]** The `message` tool errors if `target` is omitted. When reporting, always specify `target: "discord:1489796417449889844"` (guild: 1489796417449889842 / channel: general) explicitly.
@@ -42,10 +42,9 @@ description: |
 **文体**: 業界を追っている友人がリアルタイムで反応している感じ。完璧な文章にしない。
 - 冒頭フック（30文字以上）: 具体的な固有名詞・数字・事実を含める
 - 段落分割（`\n\n`）で3〜4段落に
-- 末尾は次の3種を日替わりローテーション: ①詳細はリプ欄へ ②続きと出典はリプに置いた ③補足をリプ欄にまとめた
+- 末尾: 「詳細はリプ欄へ」で締める
 - 絵文字: 文頭に1個だけ
-- 本文にURLを入れない（外部リンクは表示抑制対象。URLはリプライ末尾「参考: URL」のみ）
-- 画像を添付する場合は post-to-x.bat の第3引数に画像パスを渡す（§Phase2 有効化後）
+- 参照元URLを本文内に必ず埋め込む
 
 **stop-slop品質チェック（投稿前に必ず実施）**: `C:\Users\sawas\.openclaw\scheduled\stop-slop\SKILL.md` を読んで全面チェック。禁止フレーズ・構造クセ・副詞・無生物主語・受動態・リズム異常がないか確認し、あれば修正してから投稿。
 
@@ -86,26 +85,26 @@ description: |
 **ステップ1: 情報収集（レートリミット対策あり）**
 
 まず `web_search` で以下のクエリを試す:
-- `OpenAI OR Anthropic OR Google DeepMind 最新発表`
-- `生成AI 新モデル リリース`
-- `LLM 最新 arXiv OR GitHub`
+- `プロンプトインジェクション AI悪用 最新`
+- `AI security prompt injection OR deepfake detection news`
+- `AIガバナンス 規制 最新動向`
 
 `web_search` が 429（レートリミット）で失敗した場合、以下の直接フェッチに切り替える（優先順）:
-1. `web_fetch` で `https://openai.com/news/` を確認
-2. `web_fetch` で `https://www.anthropic.com/news` を確認
-3. `web_fetch` で `https://techcrunch.com/category/artificial-intelligence/` を確認
-4. `web_fetch` で `https://gigazine.net/` のトップページを確認してAI関連記事を探す
-5. `web_fetch` で `https://www.itmedia.co.jp/aiplus/` を確認（日本語記事）
+1. `web_fetch` で `https://techcrunch.com/category/security/` を確認
+2. `web_fetch` で `https://www.darkreading.com/` を確認
+3. `web_fetch` で `https://gigazine.net/` のトップページを確認してAIセキュリティ関連記事を探す
+4. `web_fetch` で `https://www.itmedia.co.jp/aiplus/` を確認（日本語記事）
+5. `web_fetch` で `https://www.security-next.com/` を確認（日本語セキュリティ専門）
 
-→ 参照元URLを1つ確保する。`web_fetch` で実在・記事内容を確認（401/403はOK、404は別を選ぶ）。**確保したURLをLLMが生成するJSONの `source_url` および本文・リプライ内のURL(`extracted_source_url`)として必ず利用する。**
+→ 参照元URLを1つ確保する。`web_fetch` で実在・記事内容を確認（401/403はOK、404は別を選ぶ）
 
 **ステップ2: 本文作成**（180〜270文字）
-- 本文にはURLを入れない（リプライ末尾にのみ記載）
-- 末尾は次の3種を日替わりローテーション: ①詳細はリプ欄へ ②続きと出典はリプに置いた ③補足をリプ欄にまとめた
+- 参照元URLを本文内に埋め込む
+- 末尾は必ず「詳細はリプ欄へ」で締める
 
 **ステップ3: リプライ作成**（600〜1000文字）
 - 見出し（■）＋箇条書き（・）で構造化
-- **末尾に「参考: [`extracted_source_url`]」の形式で必ず記載**
+- 参照URLを末尾に「参考: URL」として記載
 
 **ステップ4: 投稿**
 ```
@@ -167,23 +166,24 @@ Cookie は 25 日超過で警告（`cookie_stale` イベント）、失効時は
 
 ---
 
-## cronジョブ構成（@KURAOpenclaw向け）
+## cronジョブ構成（@KURAOpenclaw向け・X投稿系）
 
 | ジョブ名 | 時刻 | テーマ |
 |---|---|---|
-| x-post-ai-latest | 毎日 07:30 JST | AI最新情報 / 生成AI（本スキル） |
-| x-post-ai-pc-latest | 毎日 08:00 JST | AI PCハードウェア・新製品 |
+| x-post-ai-pc-latest | 毎日 07:25 JST | AI PCハードウェア・新製品 |
+| x-post-ai-finance | 毎日 07:50 JST | AI金融・フィンテック |
+| x-post-ai-latest | 毎日 08:20 JST | AI最新情報 / 生成AI |
+| x-post-ai-creative | 毎日 10:00 JST | AIクリエイティブ / 画像・動画・音楽生成 |
 | x-post-ai-agent | 毎日 12:00 JST | AIエージェント / マルチエージェント |
-| x-post-physical-ai-latest | 毎日 19:00 JST | フィジカルAI / ロボット |
-| x-post-ai-finance | 毎日 21:00 JST | AI金融・フィンテック |
-| x-dm-welcome-daily | 毎日 22:00 JST | 新フォロワーDMウェルカム |
+| x-post-ai-security | 毎日 12:50 JST | AIセキュリティ（本スキル） |
+| x-post-physical-ai-latest | 毎日 18:00 JST | フィジカルAI / ロボット |
 
 **起動メッセージ形式**:
 ```
-【X投稿 @KURAOpenclaw - AI最新情報】
-1. web_searchで「OpenAI OR Anthropic OR Google DeepMind 最新」等を検索し重要トピック1件選択。失敗時はweb_fetchで直接ニュースサイトを確認（openai.com/anthropic.com/techcrunch/gigazine/itmedia）
+【X投稿 @KURAOpenclaw - AIセキュリティ最新情報】
+1. web_searchで「プロンプトインジェクション AI悪用」「AI security deepfake」等を検索し重要トピック1件選択。失敗時はweb_fetchで直接ニュースサイトを確認（techcrunch/darkreading/gigazine/itmedia/security-next）
 2. web_fetchでURLを実在確認（404は別ソースへ）
-3. 本文作成（180〜270文字・URLは入れない・末尾フレーズは3種ローテーション・ハッシュタグ/絵文字禁止）
+3. 本文作成（180〜270文字・URL埋込・末尾「詳細はリプ欄へ」・ハッシュタグ/絵文字禁止）
 4. リプライ作成（600〜1000文字・■見出し＋・箇条書き・参照URL末尾に「参考:URL」）
 5. exec: C:\Users\sawas\.openclaw\workspace\tools\x-poster\post-to-x.bat "本文" "リプライ文"
 6. 結果をDiscordに報告（exit 2: 内容修正 / exit 3: Cookie更新 / exit 4: 1時間待機 / exit 5: 手動解除 / exit 6: スキップ / exit 1: エラー報告のみ）

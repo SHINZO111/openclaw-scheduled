@@ -1,61 +1,50 @@
-﻿---
+---
 name: memory-consolidation
 description: 毎週日曜23:00 JST - メモリ統合（重複削除・古い情報整理）
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+> **[Discord report requirement]** The `message` tool errors if `target` is omitted. When reporting, always specify `target: "discord:1489796417449889844"` (guild: 1489796417449889842 / channel: general) explicitly.
+> ⛔ **[SYSTEM CONSTRAINT] cronツール絶対禁止**: `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等は使用不可。失敗時はDiscordに報告してセッション終了のみ。
 
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+**[EXEC-DIRECTIVE]** 外部ファイルの読み取りは不要。直接タスクを開始。
 
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+⚠️ **スケジュール実行の必須ルール**: 失敗・中断しても必ず何らかのメッセージを返して終了すること。
 
 ---
 
-**[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
+## タスク: 週次メモリ統合
 
-⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
+> 📌 **Bootstrap肥大化防止が最優先**: memory/の日付ファイルが蓄積するとisolated cronがタイムアウトする。必ずStep 0を先に実行すること。
 
-あなたはメモリ統合エージェントです。以下の手順を実行してください。
+**Step 0: 日付ファイルの7日超クリーンアップ（必須・最優先）**
 
-## タスク: 週次メモリ統合・クリーンアップ
+`C:\Users\sawas\.openclaw\workspace\memory\` 配下のファイルを列挙。
+ファイル名が `YYYY-MM-DD` または `YYYY-MM-DD-HHMM` 形式（例: `2026-06-24-1302.md`）のものを対象にする。
 
-### Step 1: memoryディレクトリの全ファイルを確認
-`C:\Users\sawas\.openclaw\workspace\memory\` 配下のすべてのファイルを読み込んでください。
+処理手順:
+1. 各日付ファイルを Read して内容を確認
+2. **作成から7日以上経過**しているファイル → 重要エントリ（⭐/重要/KEY等のマーカーか、5行以上の具体的な知見）があれば `MEMORY.md` の末尾に `## [元ファイル名] より [YYYY-MM-DD]` として要約を追記
+3. 要約追記後（または内容が不要と判断した場合）→ **ファイルを削除（Write で空にしてから Delete、またはmcp__Windows-MCP__PowerShell で `Remove-Item`）**
+4. 削除ファイルと保存した知見の件数を記録
 
-### Step 2: 各ファイルの統合・最適化
-以下のファイルを順番に処理してください:
+目標: **memory/ の .md ファイル総サイズを 80KB 以下に維持する**
 
-**learnings.md**
-- 重複したエントリを削除
-- 30日以上前の軽微なエントリをアーカイブセクションに移動
-- 重要な学習は残す
+**Step 1**: `C:\Users\sawas\.openclaw\workspace\memory\` 配下の主要ファイルを読み込む。
 
-**growth-metrics.md**
-- 最新30日分のデータを保持
-- それ以前は月次サマリー1行に圧縮
+**Step 2**: 各ファイルを処理:
+- **learnings.md**: 重複削除 / 30日超の軽微エントリをアーカイブセクションへ移動（重要な学習は残す）
+- **growth-metrics.md**: 直近30日分を保持 / それ以前は月次サマリー1行に圧縮
+- **failures.md**: 解決済みに `[RESOLVED]` 付与 / 90日超の解決済みエントリを削除
+- **anti-recurrence-rules.md**: 効果未確認ルールに `[要見直し]` / 重複ルールをマージ
 
-**failures.md**（存在する場合）
-- 解決済みのエラーに `[RESOLVED]` マークを付与
-- 90日以上前の解決済みエントリを削除
+**Step 3**: `C:\Users\sawas\.openclaw\CLAUDE.md` を読み込み、古くなった情報・矛盾があれば提案としてまとめる（直接編集はしない）。
 
-**anti-recurrence-rules.md**（存在する場合）
-- 効果が確認できないルールに `[要見直し]` タグを付与
-- 重複するルールをマージ
-
-### Step 3: CLAUDE.mdの確認と更新提案
-`C:\Users\sawas\.openclaw\CLAUDE.md` を読み込み、古くなった情報や矛盾があれば提案としてまとめてください（直接編集はしない）。
-
-### Step 4: 統合レポートの記録
+**Step 4**: `learnings.md` に統合レポートを追記:
 ```
 ## [YYYY-MM-DD] 週次メモリ統合レポート
-- 処理ファイル数: X件
-- 削除エントリ: X件
-- アーカイブ: X件
+- 処理ファイル数: X件 / 削除エントリ: X件 / アーカイブ: X件
+- memory/ 総サイズ: XX KB（目標80KB以下）
 - 要注意事項: [あれば記載]
 ```
-を `learnings.md` に追記してください。
 
-完了後「✅ メモリ統合完了: [削除X件 / アーカイブX件]」と報告してください。
+完了後「✅ メモリ統合完了: [削除X件 / アーカイブX件 / memory/サイズ: XX KB]」と報告。

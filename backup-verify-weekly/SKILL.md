@@ -1,165 +1,40 @@
 ---
 name: backup-verify-weekly
-model: lmstudio/nvidia/nemotron-3-nano-4b
-description: 毎週月曜05:00 JST - バックアップファイル整合性確認・kura-backupの実行確認
+description: 毎週月曜05:20 JST。OpenClaw_Daily_Backupの成果物の存在・サイズ・更新日時を検証し、失敗検知時は原因（LastTaskResult）付きでDiscordへ警告する
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+> **[Discord report requirement]** The `message` tool errors if `target` is omitted. When reporting, always specify `target: "discord:1489796417449889844"` (guild: 1489796417449889842 / channel: general) explicitly.
+> ⛔ **[SYSTEM CONSTRAINT] cronツール絶対禁止**: cron.run / cron.list 等は使用不可。失敗時はDiscordに報告してセッション終了のみ。
 
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+**[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要。直接タスクを開始。**
 
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+⚠️ **スケジュール実行の必須ルール**: 失敗・中断しても必ず何らかのメッセージを返して終了すること（空レスポンスはシステムエラー）。
 
----
-**[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
-
-⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
-
-# backup-verify-weekly
-# 実行時刻: 毎週月曜05:00 JST（kura-backupの翌朝）
-# 目的: kura-backupが正常に実行されたか、バックアップファイルが存在・読み取り可能かを自動検証し、データ損失リスクを排除する
-
----
-
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
-
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## Step 1: kura-backup の実行確認
-
-`C:\Users\sawas\.openclaw\cron\jobs.json.migrated.5` を直接Readして `kura-backup` タスクの情報を取得・確認する。
-
-**確認項目**:
-- `enabled`: true かどうか
-- `lastRunAt`: 25時間以内に実行されているか（毎日00:00実行のため）
-
-**FAIL条件**: lastRunAt が30時間以上前 または null
-
----
-
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
-
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## Step 2: バックアップファイルの存在確認
-
-kura-backup が実行するバックアップ先ディレクトリを確認する。
-
-`C:\Users\sawas\.openclaw\` 配下のバックアップ関連ファイル・ディレクトリを確認:
-- `backup/` ディレクトリが存在するか
-- 最新バックアップファイルのタイムスタンプは昨日以降か
-- バックアップサイズが0でないか
-
-**代替確認**: バックアップの存在が確認できない場合は、workspace配下の主要ファイルが直接読み取れるかで代替確認する:
-- growth-metrics.md が読み取れる → workspace自体は正常
-- 最終更新日が最近である → データは存在している
-
----
-
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
-
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## Step 3: 重要ファイルの最終更新確認
-
-以下の主要ファイルの最終更新日時を確認し、適切に更新されているかチェックする:
-
-| ファイル | 期待更新頻度 | 最終更新 | 判定 |
-|---------|-----------|--------|------|
-| growth-metrics.md | 毎日 | [日時] | ✅/⚠️ |
-| learnings.md | 毎日 | [日時] | ✅/⚠️ |
-| alerts.md | 随時 | [日時] | ✅/⚠️ |
-| x-performance-log.md | 毎週火曜 | [日時] | ✅/⚠️ |
-| anti-recurrence-rules.md | 変更時 | [日時] | ✅/⚠️ |
-
----
-
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
-
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## Step 4: 結果集計と記録
-
-### sanity-check-log.md への追記
-
-`C:\Users\sawas\.openclaw\workspace\memory\sanity-check-log.md` を読む（system-sanity-check-weeklyが作成したファイル）。
-
+## Step 1: タスク実行結果確認
+PowerShellツールで実行:
 ```
-## バックアップ検証 YYYY-MM-DD
-
-| チェック項目 | 結果 | 詳細 |
-|-----------|------|------|
-| kura-backup実行確認 | ✅ PASS / ❌ FAIL | lastRunAt: [値] |
-| バックアップファイル存在 | ✅ PASS / ❌ FAIL | [詳細] |
-| 主要ファイル最終更新 | ✅ PASS / ⚠️ 注意 | [古いファイルがあれば列挙] |
-| 総合判定 | ✅ 正常 / ⚠️ 要確認 / 🔴 異常 | - |
+Get-ScheduledTask "OpenClaw_Daily_Backup" | Get-ScheduledTaskInfo | Select-Object LastRunTime, LastTaskResult, NextRunTime
 ```
+LastTaskResultが0以外の場合は失敗として扱う。
 
-### alerts.md への通知
+## Step 2: バックアップ成果物の検証
+バックアップ出力先ディレクトリ（タスク定義またはスクリプトから特定）の直近ファイルについて:
+- 存在するか
+- サイズが前回比で極端に小さくないか（0バイトや異常な縮小は失敗扱い）
+- 更新日時が直近7日以内か
 
-全PASS:
+## Step 3: Discord報告
+正常時:
 ```
-| YYYY-MM-DD 05:00 | 🔵 INFO | バックアップ検証PASS | kura-backup正常実行・主要ファイル正常 | 解決済み |
+✅ backup-verify-weekly [YYYY-MM-DD]
+LastRunTime: [日時] / LastTaskResult: 0（成功）
+成果物: [ファイル名] [サイズ] [更新日時] — 正常
 ```
-
-バックアップ未実行:
+異常時:
 ```
-| YYYY-MM-DD 05:00 | 🔴 HIGH | バックアップ未実行 | kura-backupが[N]時間未実行 — データ損失リスクあり | 未解決 |
+⚠️ バックアップ異常検知 — backup-verify-weekly [YYYY-MM-DD]
+LastRunTime: [日時] / LastTaskResult: [コード]（失敗）
+原因調査: [Get-ScheduledTaskInfoの内容 / 成果物の状態]
+対応要否: 手動確認を推奨
 ```
-
-ファイル更新が古い:
-```
-| YYYY-MM-DD 05:00 | 🟡 MEDIUM | ファイル更新停滞 | [ファイル名]が[N]日間未更新 — 自動タスクの停止を確認 | 未解決 |
-```
-
-### learnings.md への記録
-```
-- [BACKUP-VERIFY] YYYY-MM-DD バックアップ検証: [PASS/FAIL] — [特記事項]
-```
-
----
-
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
-
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## 完了条件
-- [ ] kura-backup の実行状況確認済み
-- [ ] バックアップファイル存在確認済み
-- [ ] 主要ファイル最終更新確認済み
-- [ ] sanity-check-log.md 記録済み
-- [ ] alerts.md 通知済み
-
+失敗時は理由を明記してDiscordに報告し終了（空レスポンス禁止）。

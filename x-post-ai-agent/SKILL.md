@@ -1,215 +1,201 @@
 ---
 name: x-post-ai-agent
-model: openrouter/google/gemini-2.5-flash
 description: |
-  OpenClaw から X（Twitter、@KURAOpenclaw アカウント）へ AIエージェントシステム関連の自動投稿を行うスキル。
-  Playwright＋Cookie認証ベースで、投稿プロトコル（本文250-400字・リプ600-1000字、URL必須、ハッシュタグ/絵文字禁止、末尾「詳細はリプ欄へ」）、ロックファイル、検証、ログ、投稿後検証までを含む。
+  OpenClaw から X（Twitter、@KURAOpenclaw アカウント）へ AIエージェント / マルチエージェントシステム関連の自動投稿を行うスキル。
+  Playwright＋Cookie認証ベースで、投稿プロトコル（本文180-270字・リプ600-1000字、URL必須、ハッシュタグ/絵文字禁止、末尾「詳細はリプ欄へ」）を含む。
   以下のフレーズで起動する：
-  - 「AIエージェント情報をXで投稿して」
-  - 「AIエージェントシステムをツイートして」
-  - 「x-post-ai-agent実行」
-  `post-to-x.bat` / `post-to-x.js` をPowerShellから呼び出す。AIエージェント・自律AIシステム発信用途。
+  - 「AIエージェントをXで投稿して」
+  - 「エージェントAIをツイートして」
+  - 「AIエージェント投稿」
+  `post-to-x.bat` / `post-to-x.js` をPowerShellから呼び出す。AIエージェント・マルチエージェント・AutoGen・CrewAI・LangGraph等発信用途。
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+> **[Discord report requirement]** The `message` tool errors if `target` is omitted. When reporting, always specify `target: "discord:1489796417449889844"` (guild: 1489796417449889842 / channel: general) explicitly.
+> ⛔ **[SYSTEM CONSTRAINT] cronツール絶対禁止**: `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは使用不可。自己自身がcronジョブとして動作中のため呼び出すとシステムエラー。失敗時はDiscordに報告してセッション終了のみ。
 
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+**[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要。scheduledディレクトリ等を探索せず直接タスクを開始。**
 
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-**[EXEC-DIRECTIVE] このプロンプトにすべての手順が含まれています。外部ファイルの読み取りは不要です。scheduledディレクトリ等の探索はせず、直接タスクを開始してください。**
-
-> ⚠️ **スケジュール実行の必須ルール**: どのステップで失敗・中断しても、必ず何らかのメッセージを返して終了すること。空のままタスクを終了しないこと（空レスポンスはシステムエラーとして記録される）。
-
-> ⛔ **コンテンツ生成時の絶対禁止事項（これを破ると validate.js が exit 2 で BLOCKING）**:
-> - ハッシュタグ（`#AI` 等の `#` 記号を含むすべてのタグ）
-> - 絵文字（📰🔗🤖 等あらゆる絵文字）
-> - 番号付き絵文字（1️⃣2️⃣ 等）
-> - マークダウン記法（`**太字**` `` `code` `` 等）
-> - 装飾記号（【】◆◇●▶ 等）
->
-> **スクリプト実行は必ず PowerShell で行うこと:**
-> ```
-> & "C:\Users\sawas\.openclaw\workspace\tools\x-poster\post-to-x.bat" "本文" "リプライ文"
-> ```
-
-## ⚡ Preflight: Playwright ロック確認（**web_search 開始前・最優先**）
-
-**この確認をコンテンツ生成開始前に必ず実行すること:**
-
-1. Read ツールで `C:\Users\sawas\.openclaw\workspace\tools\x-poster\logs\.post.lock` を読む
-2. **ファイルが存在し、中の `ts` が現在時刻（ms）から600000ms＝10分以内** → 別のX投稿ジョブが実行中  
-   Discordに「別ジョブ実行中のためスキップ」と1行報告して即終了
-3. **ファイルが存在しない or `ts` が10分超過（stale）** → そのまま続行
+⚠️ **スケジュール実行の必須ルール**: 失敗・中断しても必ず何らかのメッセージを返して終了すること。
 
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+## ⚡ Preflight: Playwright ロック確認（最優先）
 
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-# x-post-ai-agent スキル（AIエージェントシステム投稿）
-
-## 概要
-
-OpenClaw から X（Twitter）へ AIエージェント・自律AIシステムに関する情報を自動投稿するスキル。
-毎日12:00 JSTに実行。最新のAIエージェントフレームワーク、マルチエージェントシステム、AutoGPT系ツールなどを発信。
+1. Read で `C:\Users\sawas\.openclaw\workspace\tools\x-poster\logs\.post.lock` を読む
+2. ファイルが存在し `ts` が現在時刻から600000ms（10分）以内 → Discordに「⚡ 別ジョブ実行中のためスキップ」と報告して即終了
+3. ファイルが存在しない or 10分超過（stale）→ 続行（ロック取得はpost-to-x.jsが自動実施）
 
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+## アカウント
 
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+| アカウント | Cookie |
+|---|---|
+| `@KURAOpenclaw` | `x-twitter-cookies.json`（AUTH_TOKEN/CT0から生成） |
 
 ---
-## アカウント構成
 
-| アカウント | 用途 | Cookieファイル |
+## 投稿フォーマット
+
+### 本文（180〜270文字。X実測280字が投稿ブロックの絶対上限）
+
+**文体**: 業界を追っている友人がリアルタイムで反応している感じ。完璧な文章にしない。
+- 冒頭フック（30文字以上）: 具体的な固有名詞・数字・事実を含める
+- 段落分割（`\n\n`）で3〜4段落に
+- 末尾は次の3種を日替わりローテーション: ①詳細はリプ欄へ ②続きと出典はリプに置いた ③補足をリプ欄にまとめた
+- 絵文字: 文頭に1個だけ
+- 本文にURLを入れない（外部リンクは表示抑制対象。URLはリプライ末尾「参考: URL」のみ）
+- 画像を添付する場合は post-to-x.bat の第3引数に画像パスを渡す（§Phase2 有効化後）
+
+**stop-slop品質チェック（投稿前に必ず実施）**: `C:\Users\sawas\.openclaw\scheduled\stop-slop\SKILL.md` を読んで全面チェック。禁止フレーズ・構造クセ・副詞・無生物主語・受動態・リズム異常がないか確認し、あれば修正してから投稿。
+
+### リプライ（600〜1000文字）
+
+構成パターン（記事に合うものを選ぶ）:
+- **What→So What型**: 何が起きた→なぜ重要か→見立て（3段落）
+- **数字ドリブン型**: 核心の数字2-3個→比較で文脈づけ→示唆
+- **逆張り型**: 一般的な見方→でも実は→根拠
+- **時系列型**: 背景→今回→今後の読み
+
+1段落最大3文、段落間に空行。参照URLをリプライ末尾に「参考: URL」として記載。
+
+---
+
+## 禁止事項（全面）
+
+| 禁止 | 種別 |
+|---|---|
+| `#AI` 等ハッシュタグ（`#`記号を伴う全て） | **BLOCKING（exit 2）** |
+| 絵文字（本文冒頭1個を除くすべて）、番号絵文字（1️⃣等） | 禁止 |
+| 装飾記号（【】◆●▶ 等）、マークダウン（`**` `` `code` ``） | 禁止 |
+| 報告調（〜しました・〜されています・〜とのことです） | 禁止 |
+| `example.com` / `<URL>` 等プレースホルダURL | **BLOCKING（exit 2）** |
+
+---
+
+## URL実在性（最重要）
+
+- URLは必ず `web_search` / `web_fetch` で実際に確認したものだけを使う
+- 404・ドメイン不在は**BLOCKING**（401/403はBot検知なので実在扱いで通過するが、コンテンツ取得不可の場合は別URLを優先し、推測で本文を補完しないこと）
+- `validate.js` と `post-to-x.js` のプリフライトが自動ブロック
+
+---
+
+## 投稿手順
+
+**ステップ1: 情報収集（レートリミット対策あり）**
+
+まず `web_search` で以下のクエリを試す:
+- `AIエージェント マルチエージェント 最新`
+- `AI agent framework AutoGen OR CrewAI OR LangGraph`
+- `agentic AI autonomous agent news`
+
+`web_search` が 429（レートリミット）で失敗した場合、以下の直接フェッチに切り替える（優先順）:
+1. `web_fetch` で `https://techcrunch.com/category/artificial-intelligence/` を確認
+2. `web_fetch` で `https://www.infoq.com/ai-ml-data-eng/` を確認
+3. `web_fetch` で `https://gigazine.net/` のトップページを確認してAIエージェント関連記事を探す
+4. `web_fetch` で `https://github.com/trending?since=weekly&spoken_language_code=` を確認（OSS新着）
+5. `web_fetch` で `https://www.itmedia.co.jp/aiplus/` を確認（日本語記事）
+6. `web_fetch` で `https://huggingface.co/papers?q=ai+agent` を確認（HuggingFace 最新AI論文・実装紹介）
+7. `web_fetch` で `https://html.duckduckgo.com/html/?q=AI+agent+latest` を確認（DuckDuckGo 無料検索・登録不要）
+
+→ 参照元URLを1つ確保する。`web_fetch` で実在・記事内容を確認（401/403はOK、404は別を選ぶ）
+
+**ステップ2: 本文作成**（180〜270文字）
+- 本文にはURLを入れない（リプライ末尾にのみ記載）
+- 末尾は次の3種を日替わりローテーション: ①詳細はリプ欄へ ②続きと出典はリプに置いた ③補足をリプ欄にまとめた
+
+**ステップ3: リプライ作成**（600〜1000文字）
+- 見出し（■）＋箇条書き（・）で構造化
+- 参照URLを末尾に「参考: URL」として記載
+
+**ステップ4: 投稿**
+```
+exec: C:\Users\sawas\.openclaw\workspace\tools\x-poster\post-to-x.bat "本文" "リプライ文"
+```
+
+**ステップ5: 結果確認**
+stdout に `TWEET_URL` / `REPLY_URL` / `VERIFY_TWEET` / `VERIFY_REPLY` が出力される。
+
+---
+
+## 終了コード
+
+| code | 意味 | 対応 |
 |---|---|---|
-| `@KURAOpenclaw` | AIエージェント情報発信 | `x-twitter-cookies.json` |
+| 0 | 投稿成功 | TWEET_URL を Discord に報告 |
+| 1 | 予期せぬエラー | エラー内容を Discord に報告、**リトライしない** |
+| 2 | プロトコル違反（ハッシュタグ・プレースホルダURL等） | 内容修正のうえ再実行 |
+| 3 | 認証失敗（Cookie 失効） | `.env` 更新 → `node setup-cookies.js` |
+| 4 | レートリミット | 1時間以上待機後に再実行 |
+| 5 | チャレンジ要求（reCAPTCHA） | ブラウザで手動解除 |
+| 6 | ロック競合（他プロセスが投稿中） | 完了を待ってから再実行 |
 
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
-
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## テーマ・検索キーワード
-
-以下のキーワードでweb_searchを実行し、最新情報（24時間以内）を取得する:
-
-- "AI agent" OR "AIエージェント" site:github.com OR site:arxiv.org (直近24h)
-- "multi-agent system" OR "autonomous AI" (直近24h)
-- "LLM agent" OR "agentic AI" (直近1週間)
-- OpenAI Swarm、Claude Computer Use、LangGraph、AutoGen、CrewAI の最新動向
-
----
-
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
-
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## 投稿プロトコル
-
-### 1. リサーチ（5分以内）
-
-web_searchで上記キーワードを検索し、最も価値ある1記事/リポジトリ/論文を選定する。
-
-**選定基準:**
-- GitHub star急増（直近24h）
-- arXiv新着論文
-- 主要AIラボの発表
-- 実用的なエージェントフレームワークの新バージョン
-
-### 2. 本文生成（250-400字）
+## ファイル構成
 
 ```
-[タイトル/見出し]（1行）
-
-[要点を2-3文で説明]
-
-[なぜ重要か・何が変わるか 1-2文]
-
-詳細はリプ欄へ
-[URL]
+C:\Users\sawas\.openclaw\workspace\tools\x-poster\
+├── post-to-x.js       # Playwright投稿本体（ロック・ログ・検証・リトライ）
+├── validate.js        # 投稿プロトコル検証
+├── post-to-x.bat      # 呼び出し用バッチ
+├── setup-cookies.js   # .envからCookie JSON生成
+├── x-twitter-cookies.json  # Cookie（.gitignore済）
+└── logs/
+    ├── post-YYYYMMDD.log   # JSONL構造化ログ（30日で自動削除）
+    ├── .post.lock          # PID+取得時刻（10分超過でstale自動解除）
+    └── verify-*.png        # 投稿後検証スクショ
 ```
-
-**必須:**
-- 事実ベース（誇張なし）
-- URL必須（記事/論文/GitHubリンク）
-- 末尾「詳細はリプ欄へ」
-- 250-400字以内
-
-### 3. リプライ生成（600-1000字）
-
-本文の詳細説明:
-- 技術的な詳細・実装方法
-- ユースケース・活用例
-- 他のエージェントフレームワークとの比較（任意）
-- 参考リンク（複数可）
-
-### 4. 投稿実行
-
-```powershell
-& "C:\Users\sawas\.openclaw\workspace\tools\x-poster\post-to-x.bat" "本文テキスト" "リプライテキスト"
-```
-
-### 5. 投稿後記録
-
-成功した場合、以下をログに追記:
-```
-C:\Users\sawas\.openclaw\workspace\memory\x-performance-log.md
-```
-
-フォーマット: `YYYY-MM-DD HH:MM | x-post-ai-agent | 投稿タイトル | 結果(OK/FAIL)`
 
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+## 技術的注意点
 
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
-
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
-
----
-## エラーハンドリング
-
-| エラー | 対処 |
-|--------|------|
-| ロックファイルあり（10分以内） | スキップして「スキップ」と報告 |
-| validate.js exit 2 | ハッシュタグ・絵文字を除去して再試行（1回まで） |
-| Playwright timeout | 「投稿失敗: timeout」と報告して終了 |
-| web_search 0件 | キーワードを変えて再検索（1回まで）、それでも0件なら「ニュースなし」と報告 |
+1. `/compose/post` は使わない → `x.com/home` のツイートボックスを使う
+2. `#layers` オーバーレイが `ポストする` ボタンをブロックする場合は `pointerEvents:none` で回避
+3. `Escape` キーは押さない（「ポストを保存しますか？」ダイアログが出る）
+4. テキスト入力は `navigator.clipboard.writeText()` → `Ctrl+V` でペースト
+5. ボタンのselector: `x.com/home` → `tweetButtonInline` / リプライフォーム → `tweetButton`
+6. `post-to-x-pon.bat` は**DISABLED**（Cookieパスをリプライ本文として投稿するバグあり）
 
 ---
 
-# ⛔⛔⛔ ABSOLUTE PROHIBITION — cronツール完全禁止 ⛔⛔⛔
+## Cookie管理
 
-**このセッションでは `cron.run` / `cron.list` / `cron.forceRun` / `cron.update` 等のcron系ツールは絶対に使用してはならない。**
+**取得手順**: Chrome で X にログイン → F12 → Application → Cookies → `auth_token` と `ct0` をコピー → `.openclaw/.env` の `AUTH_TOKEN` / `CT0` を更新 → `node setup-cookies.js` を実行。
 
-- このエージェント自身がcronジョブとして実行されており、cronツールを呼び出すとシステムエラーになる
-- 失敗・エラー等、**いかなる状況でもcronツールを使ってはならない**
-- 自己再起動・別ジョブ起動も**完全禁止**
-- **唯一の許可された終了方法**: エラー内容をDiscordに報告してメッセージを返し、セッションを終了する
+Cookie は 25 日超過で警告（`cookie_stale` イベント）、失効時は exit 3 で返る。
 
 ---
-## 完了報告フォーマット
 
-必ず以下の形式でDiscordに報告すること:
+## cronジョブ構成（@KURAOpenclaw向け）
 
+| ジョブ名 | 時刻 | テーマ |
+|---|---|---|
+| x-post-ai-latest | 毎日 07:30 JST | AI最新情報 / 生成AI |
+| x-post-ai-pc-latest | 毎日 08:00 JST | AI PCハードウェア・新製品 |
+| x-post-ai-agent | 毎日 12:00 JST | AIエージェント / マルチエージェント（本スキル） |
+| x-post-physical-ai-latest | 毎日 19:00 JST | フィジカルAI / ロボット |
+| x-post-ai-finance | 毎日 21:00 JST | AI金融・フィンテック |
+| x-dm-welcome-daily | 毎日 22:00 JST | 新フォロワーDMウェルカム |
+
+**起動メッセージ形式**:
 ```
-[x-post-ai-agent] YYYY-MM-DD HH:MM JST
-状態: 成功/失敗/スキップ
-投稿内容: （本文冒頭50字）
-URL: （投稿URL or 参照URL）
+【X投稿 @KURAOpenclaw - AIエージェント最新情報】
+1. web_searchで「AIエージェント 最新」「AI agent framework」等を検索し重要トピック1件選択。失敗時はweb_fetchで直接ニュースサイトを確認（techcrunch/infoq/gigazine/github trending/itmedia）
+2. web_fetchでURLを実在確認（404は別ソースへ）
+3. 本文作成（180〜270文字・URLは入れない・末尾フレーズは3種ローテーション・ハッシュタグ/絵文字禁止）
+4. リプライ作成（600〜1000文字・■見出し＋・箇条書き・参照URL末尾に「参考:URL」）
+5. exec: C:\Users\sawas\.openclaw\workspace\tools\x-poster\post-to-x.bat "本文" "リプライ文"
+6. 結果をDiscordに報告（exit 2: 内容修正 / exit 3: Cookie更新 / exit 4: 1時間待機 / exit 5: 手動解除 / exit 6: スキップ / exit 1: エラー報告のみ）
+7. 【Threadsクロスポスト】X成功後: post-to-threads.bat "threads_main（詳細はリプ欄へを除去・500字以内）" "threads_reply（500字以内）"
 ```
+
+---
+
+## Stealth Browser Integration (2026-06-26)
+
+This skill's scripts use **stealth-config.js** + **CloakBrowser** (58 C++ patches) automatically.
+Fallback: standard Playwright Chromium -> chrome channel -> headed off-screen.
+Config: C:\Users\sawas\.openclaw\workspace\tools\x-poster\stealth-config.js
